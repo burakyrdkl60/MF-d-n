@@ -20,7 +20,15 @@ form.addEventListener('submit', function (e) {
             resultDiv.innerText = "Başarılı: " + data;
             form.reset();
         })
+        .then(data => {
+            // data = dosya adı
+            const fileUrl = `${UPLOAD_URL}/uploads/${data}`;
+            resultDiv.innerHTML = `<a href="${fileUrl}" target="_blank">${data}</a>`;
+        })
+
         .catch(err => {
             resultDiv.innerText = "Hata oluştu: " + err;
         });
+
+
 });

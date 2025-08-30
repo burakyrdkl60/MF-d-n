@@ -40,3 +40,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
 // Sunucu portu (Render otomatik PORT verir)
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server ${PORT} portunda çalışıyor`));
+
+// uploads klasörünü tarayıcıya aç
+app.use('/uploads', express.static('uploads'));
+
